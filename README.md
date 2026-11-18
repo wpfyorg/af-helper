@@ -6,6 +6,12 @@ AF Helper is a small, dependency-light Android app for finding a nearby Jio AirF
 
 The app is native Java, has no analytics, and uploads nothing. All ODU traffic stays on the local Bluetooth PAN.
 
+## Download
+
+A signed release APK is attached to [Releases](https://github.com/wpfyorg/af-helper/releases/latest). Download the latest `af-helper-*.apk` and open it on the phone. Android will ask you to allow installs from the browser or file manager you used; the app itself requests only the permissions it needs at runtime.
+
+Release APKs are signed with the project key. Verify the SHA-256 checksum published in the release notes before installing if you downloaded the file from anywhere else.
+
 ## What it does
 
 - **Find the ODU.** Scan nearby BLE devices and show a sanitized name plus signal strength, or scan the sticker QR code / paste sticker text to jump straight to that unit. Bluetooth addresses are never displayed or logged.
