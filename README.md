@@ -60,7 +60,7 @@ RELEASE_KEY_ALIAS=af-helper
 RELEASE_KEY_PASSWORD=change-me
 ```
 
-A release build without these signing values produces an unsigned APK; the Gradle task reports what is missing.
+A release build requires a signing configuration; without one, Gradle stops with a message listing the missing values.
 
 ## Protocol notes
 
@@ -73,7 +73,7 @@ The BLE contract is:
 | PAN address | `0000ca7a-0000-1000-a435-311b63657f1f` |
 | CCCD | `00002902-0000-1000-8000-00805f9b34fb` |
 
-The discovery characteristic is written once. The PAN characteristic returns an 11-byte payload: a one-byte status followed by a 10-byte IPv4 host fragment. `0xff` means Bluetooth tethering is off; `0xfe` means the unit is busy. A busy result is reported to the user and never triggers a Bluetooth reset.
+The discovery characteristic is written once. The PAN characteristic returns the ODU's IPv4 host as a small UTF-8 payload. A one-byte payload of `0xff` means Bluetooth tethering is off; `0xfe` means the unit is busy. A busy result is reported to the user and never triggers a Bluetooth reset.
 
 The app treats BLE as discovery only. A returned host does not prove that Android has an HTTP route over Bluetooth PAN. If the WebUI does not answer, check Bluetooth tethering in Settings and retry.
 
