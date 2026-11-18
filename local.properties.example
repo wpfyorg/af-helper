@@ -1,0 +1,17 @@
+# Copy to local.properties and edit. This file is ignored by git.
+#
+# Required:
+sdk.dir=/path/to/Android/sdk
+
+# Optional: present a client certificate to ODU firmware that requires mTLS.
+# AF_BLE_CLIENT_KEYSTORE=/absolute/path/to/client.p12
+# AF_BLE_CLIENT_PASSWORD=change-me
+
+# Optional: prefill the ODU sign-in form. Values are compiled into the APK.
+# AF_ODU_ADMIN_USER=Admin
+# AF_ODU_ADMIN_PASSWORD=change-me
+
+# Optional: release signing. Put the keystore at ./release.keystore.
+# RELEASE_STORE_PASSWORD=change-me
+# RELEASE_KEY_ALIAS=af-helper
+# RELEASE_KEY_PASSWORD=change-me

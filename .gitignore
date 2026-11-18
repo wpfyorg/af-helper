@@ -1,0 +1,27 @@
+# Local configuration and secrets
+local.properties
+release.keystore
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.crt
+secrets.properties
+
+# Build and machine state
+.gradle/
+build/
+**/build/
+*.class
+*.dex
+.DS_Store
+.idea/
+*.iml
+captures/
+
+# Packaging output
+*.apk
+*.aab
+*.ap_

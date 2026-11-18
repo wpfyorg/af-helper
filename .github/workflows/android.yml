@@ -1,0 +1,41 @@
+name: Android CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install SDK platform
+        run: sdkmanager --install "platforms;android-36"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Test and build
+        run: ./gradlew :bleapp:testDebugUnitTest :bleapp:assembleDebug --console=plain
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: af-helper-debug
+          path: bleapp/build/outputs/apk/debug/bleapp-debug.apk
+          if-no-files-found: error
